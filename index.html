@@ -29,23 +29,21 @@
     overflow-x:hidden;
   }
   a{text-decoration:none;color:inherit}
-  img{max-width:100%;display:block}
   .container{max-width:1200px;margin:0 auto;padding:0 24px}
 
   /* ===== NAVBAR ===== */
   header{
     position:fixed;top:0;left:0;right:0;z-index:100;
-    background:rgba(255,248,236,.85);
+    background:rgba(255,248,236,.9);
     backdrop-filter:blur(12px);
     border-bottom:1px solid rgba(232,163,23,.15);
-    transition:.3s;
   }
   nav{display:flex;align-items:center;justify-content:space-between;padding:18px 0}
   .logo{display:flex;align-items:center;gap:10px;font-weight:800;font-size:1.5rem;color:var(--brown)}
   .logo-icon{
     width:42px;height:42px;border-radius:12px;
     background:linear-gradient(135deg,var(--honey),var(--honey-dark));
-    display:grid;place-items:center;color:#fff;font-size:1.3rem;
+    display:grid;place-items:center;font-size:1.3rem;
     box-shadow:0 6px 16px rgba(232,163,23,.4);
   }
   .nav-links{display:flex;gap:32px;list-style:none}
@@ -107,11 +105,9 @@
   .hero-img{
     position:absolute;inset:0;border-radius:32px;overflow:hidden;
     box-shadow:var(--shadow);
-    background:url('https://images.unsplash.com/photo-1587049352846-4a222e784d38?w=900&q=80') center/cover;
-  }
-  .hero-img::after{
-    content:'';position:absolute;inset:0;
-    background:linear-gradient(180deg,transparent 50%,rgba(61,40,23,.4));
+    background: linear-gradient(135deg, #f5c25a 0%, #e8a317 50%, #b8800d 100%);
+    display:flex;align-items:center;justify-content:center;
+    font-size:10rem;
   }
   .floating-card{
     position:absolute;background:#fff;padding:16px 20px;border-radius:16px;
@@ -156,7 +152,7 @@
   .feature-icon{
     width:72px;height:72px;margin:0 auto 20px;border-radius:20px;
     background:linear-gradient(135deg,var(--honey-light),var(--honey));
-    display:grid;place-items:center;font-size:2rem;color:#fff;
+    display:grid;place-items:center;font-size:2rem;
     box-shadow:0 10px 24px rgba(232,163,23,.3);
   }
   .feature h3{color:var(--brown);font-size:1.15rem;margin-bottom:10px;font-weight:700}
@@ -171,40 +167,39 @@
   }
   .product:hover{transform:translateY(-10px);box-shadow:0 20px 40px rgba(61,40,23,.18)}
   .product-img{
-    height:240px;background-size:cover;background-position:center;
+    height:220px;
     position:relative;
+    display:flex;align-items:center;justify-content:center;
+    font-size:5rem;
   }
+  .product-img.g1{background:linear-gradient(135deg,#f5c25a,#e8a317)}
+  .product-img.g2{background:linear-gradient(135deg,#d4a574,#8B6914)}
+  .product-img.g3{background:linear-gradient(135deg,#f0b429,#c77800)}
+  .product-img.g4{background:linear-gradient(135deg,#e8b923,#9c6b00)}
+  .product-img.g5{background:linear-gradient(135deg,#c9a227,#6b4a00)}
+  .product-img.g6{background:linear-gradient(135deg,#f5d76e,#b8800d)}
   .product-img::after{
     content:'';position:absolute;inset:0;
-    background:linear-gradient(180deg,transparent 60%,rgba(61,40,23,.3));
+    background:linear-gradient(180deg,transparent 60%,rgba(61,40,23,.25));
   }
   .product-badge{
     position:absolute;top:16px;right:16px;z-index:2;
-    background:var(--honey);color:#fff;padding:6px 14px;
-    border-radius:999px;font-size:.8rem;font-weight:600;
+    background:rgba(255,255,255,.95);color:var(--honey-dark);
+    padding:6px 14px;border-radius:999px;font-size:.8rem;font-weight:600;
+    backdrop-filter:blur(8px);
   }
   .product-body{padding:24px}
-  .product h3{color:var(--brown);font-size:1.25rem;margin-bottom:8px;font-weight:700}
-  .product-desc{color:var(--muted);font-size:.9rem;margin-bottom:16px;min-height:44px}
-  .product-meta{
-    display:flex;align-items:center;justify-content:space-between;
-    padding-top:16px;border-top:1px dashed rgba(232,163,23,.3);
-  }
-  .price{font-size:1.3rem;font-weight:800;color:var(--honey-dark)}
-  .price small{font-size:.75rem;color:var(--muted);font-weight:400}
-  .add-cart{
-    background:var(--brown);color:#fff;border:none;padding:10px 18px;
-    border-radius:12px;cursor:pointer;font-family:inherit;font-weight:600;
-    transition:.3s;font-size:.9rem;
-  }
-  .add-cart:hover{background:var(--honey-dark)}
+  .product h3{color:var(--brown);font-size:1.25rem;margin-bottom:10px;font-weight:700}
+  .product-desc{color:var(--muted);font-size:.95rem}
 
   /* ===== ABOUT ===== */
   .about{background:linear-gradient(135deg,var(--brown) 0%,var(--brown-soft) 100%);color:#fff}
   .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
   .about-img{
     border-radius:24px;overflow:hidden;height:440px;
-    background:url('https://images.unsplash.com/photo-1558642452-9d2a7deb7f62?w=800&q=80') center/cover;
+    background:linear-gradient(135deg,#8B6914,#D4A574);
+    display:flex;align-items:center;justify-content:center;
+    font-size:10rem;
     box-shadow:0 20px 50px rgba(0,0,0,.3);
   }
   .about .section-tag{color:var(--honey-light)}
@@ -221,11 +216,30 @@
     color:#fff;font-weight:700;flex-shrink:0;
   }
 
+  /* ===== PROCESS ===== */
+  .process{background:var(--cream)}
+  .process-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;position:relative}
+  .step{
+    text-align:center;padding:30px 20px;background:#fff;
+    border-radius:20px;box-shadow:var(--shadow);
+    position:relative;transition:.3s;
+  }
+  .step:hover{transform:translateY(-6px)}
+  .step-num{
+    width:56px;height:56px;margin:0 auto 16px;border-radius:50%;
+    background:linear-gradient(135deg,var(--honey),var(--honey-dark));
+    color:#fff;font-size:1.4rem;font-weight:800;
+    display:grid;place-items:center;
+    box-shadow:0 8px 20px rgba(232,163,23,.4);
+  }
+  .step h3{color:var(--brown);font-size:1.1rem;margin-bottom:8px;font-weight:700}
+  .step p{color:var(--muted);font-size:.9rem}
+
   /* ===== TESTIMONIALS ===== */
-  .testimonials{background:var(--cream)}
+  .testimonials{background:#fff}
   .testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
   .testi{
-    background:#fff;padding:32px;border-radius:20px;
+    background:var(--cream);padding:32px;border-radius:20px;
     box-shadow:var(--shadow);position:relative;
   }
   .testi::before{
@@ -244,7 +258,7 @@
   .stars{color:var(--honey);margin-bottom:12px}
 
   /* ===== CONTACT ===== */
-  .contact{background:#fff}
+  .contact{background:var(--cream)}
   .contact-grid{display:grid;grid-template-columns:1fr 1.2fr;gap:60px}
   .contact-info h3{color:var(--brown);font-size:1.5rem;margin-bottom:20px;font-weight:700}
   .contact-info p{color:var(--muted);margin-bottom:32px}
@@ -257,16 +271,16 @@
   .info-item strong{display:block;color:var(--brown);margin-bottom:4px}
   .info-item span{color:var(--muted);font-size:.95rem}
 
-  form{background:var(--cream);padding:36px;border-radius:24px}
+  form{background:#fff;padding:36px;border-radius:24px;box-shadow:var(--shadow)}
   .form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px}
   .form-group{margin-bottom:16px}
   label{display:block;margin-bottom:8px;font-weight:600;color:var(--brown);font-size:.9rem}
   input,textarea{
-    width:100%;padding:14px 18px;border:2px solid transparent;
-    border-radius:14px;background:#fff;font-family:inherit;font-size:.95rem;
+    width:100%;padding:14px 18px;border:2px solid #f0e6d2;
+    border-radius:14px;background:var(--cream);font-family:inherit;font-size:.95rem;
     color:var(--text);transition:.2s;
   }
-  input:focus,textarea:focus{outline:none;border-color:var(--honey)}
+  input:focus,textarea:focus{outline:none;border-color:var(--honey);background:#fff}
   textarea{resize:vertical;min-height:120px}
   form .btn{width:100%;padding:16px;font-size:1rem}
 
@@ -285,7 +299,7 @@
     background:rgba(255,255,255,.08);display:grid;place-items:center;
     transition:.3s;
   }
-  .socials a:hover{background:var(--honey);color:#fff;transform:translateY(-3px)}
+  .socials a:hover{background:var(--honey);transform:translateY(-3px)}
   .footer-bottom{
     padding-top:24px;border-top:1px solid rgba(255,255,255,.1);
     text-align:center;font-size:.9rem;
@@ -302,13 +316,13 @@
     .menu-toggle{display:block}
     .hero-grid,.about-grid,.contact-grid{grid-template-columns:1fr;gap:40px}
     .hero-visual{height:400px}
-    .features-grid,.products-grid,.testi-grid{grid-template-columns:1fr}
+    .features-grid,.products-grid,.testi-grid,.process-grid{grid-template-columns:1fr 1fr}
     .footer-grid{grid-template-columns:1fr 1fr;gap:30px}
     .form-row{grid-template-columns:1fr}
     section{padding:70px 0}
   }
-  @media(max-width:500px){
-    .footer-grid{grid-template-columns:1fr}
+  @media(max-width:560px){
+    .features-grid,.products-grid,.testi-grid,.process-grid,.footer-grid{grid-template-columns:1fr}
     .hero-stats{gap:24px}
   }
 
@@ -334,7 +348,7 @@
         <li><a href="#about">درباره ما</a></li>
         <li><a href="#contact">تماس</a></li>
       </ul>
-      <a href="#products" class="btn btn-primary" style="padding:10px 22px">سفارش</a>
+      <a href="#contact" class="btn btn-primary" style="padding:10px 22px">تماس با ما</a>
       <button class="menu-toggle" id="menuToggle">☰</button>
     </nav>
   </div>
@@ -359,7 +373,7 @@
         </div>
       </div>
       <div class="hero-visual reveal">
-        <div class="hero-img"></div>
+        <div class="hero-img">🍯</div>
         <div class="floating-card fc1">
           <div class="fc-icon">🏔️</div>
           <div class="fc-text"><strong>کوهستان زاگرس</strong><span>ارتفاع ۲۵۰۰ متر</span></div>
@@ -416,77 +430,61 @@
     </div>
     <div class="products-grid">
       <div class="product reveal">
-        <div class="product-img" style="background-image:url('https://images.unsplash.com/photo-1587049352846-4a222e784d38?w=600&q=80')">
+        <div class="product-img g1">
           <span class="product-badge">پرفروش</span>
+          🍯
         </div>
         <div class="product-body">
           <h3>عسل گون کوهی</h3>
-          <p class="product-desc">عسل تک‌گل گون از ارتفاعات زاگرس، طعمی ملایم و خواص بی‌نظیر</p>
-          <div class="product-meta">
-            <div class="price">۴۸۰,۰۰۰ <small>تومان / کیلو</small></div>
-            <button class="add-cart">افزودن</button>
-          </div>
+          <p class="product-desc">عسل تک‌گل گون از ارتفاعات زاگرس، با طعمی ملایم و خواص بی‌نظیر برای تقویت عمومی بدن.</p>
         </div>
       </div>
       <div class="product reveal">
-        <div class="product-img" style="background-image:url('https://images.unsplash.com/photo-1558642452-9d2a7deb7f62?w=600&q=80')">
+        <div class="product-img g2">
           <span class="product-badge">ویژه</span>
+          🌿
         </div>
         <div class="product-body">
           <h3>عسل آویشن</h3>
-          <p class="product-desc">عسل آویشن وحشی، مناسب تقویت سیستم ایمنی و سرماخوردگی</p>
-          <div class="product-meta">
-            <div class="price">۵۶۰,۰۰۰ <small>تومان / کیلو</small></div>
-            <button class="add-cart">افزودن</button>
-          </div>
+          <p class="product-desc">عسل آویشن وحشی، مناسب تقویت سیستم ایمنی و کمک به بهبود سرماخوردگی و عفونت‌ها.</p>
         </div>
       </div>
       <div class="product reveal">
-        <div class="product-img" style="background-image:url('https://images.unsplash.com/photo-1471943311424-646960669fbc?w=600&q=80')">
+        <div class="product-img g3">
           <span class="product-badge">جدید</span>
+          🌸
         </div>
         <div class="product-body">
           <h3>عسل چهل گیاه</h3>
-          <p class="product-desc">ترکیبی از شهد گل‌های وحشی کوهستان، عطری دلنشین و طعمی ماندگار</p>
-          <div class="product-meta">
-            <div class="price">۴۲۰,۰۰۰ <small>تومان / کیلو</small></div>
-            <button class="add-cart">افزودن</button>
-          </div>
+          <p class="product-desc">ترکیبی از شهد گل‌های وحشی کوهستان، با عطری دلنشین و طعمی ماندگار و متعادل.</p>
         </div>
       </div>
       <div class="product reveal">
-        <div class="product-img" style="background-image:url('https://images.unsplash.com/photo-1600271867407-1a8a5b4cf9d5?w=600&q=80')"></div>
+        <div class="product-img g4">
+          🌴
+        </div>
         <div class="product-body">
           <h3>عسل کنار</h3>
-          <p class="product-desc">عسل کنار جنوب، معروف به عسل انرژی‌زا و مقوی برای همه سنین</p>
-          <div class="product-meta">
-            <div class="price">۵۲۰,۰۰۰ <small>تومان / کیلو</small></div>
-            <button class="add-cart">افزودن</button>
-          </div>
+          <p class="product-desc">عسل کنار جنوب، معروف به عسل انرژی‌زا و مقوی، مناسب برای همه سنین و فصول.</p>
         </div>
       </div>
       <div class="product reveal">
-        <div class="product-img" style="background-image:url('https://images.unsplash.com/photo-1587049633312-d628ae50a8ae?w=600&q=80')"></div>
+        <div class="product-img g5">
+          ⚫
+        </div>
         <div class="product-body">
           <h3>عسل سیاه‌دانه</h3>
-          <p class="product-desc">ترکیب عسل طبیعی با سیاه‌دانه، معجزه‌ای برای تقویت بدن</p>
-          <div class="product-meta">
-            <div class="price">۶۴۰,۰۰۰ <small>تومان / کیلو</small></div>
-            <button class="add-cart">افزودن</button>
-          </div>
+          <p class="product-desc">ترکیب عسل طبیعی با سیاه‌دانه، معجزه‌ای برای تقویت بدن و پیشگیری از بیماری‌ها.</p>
         </div>
       </div>
       <div class="product reveal">
-        <div class="product-img" style="background-image:url('https://images.unsplash.com/photo-1611080626919-7cf5a9dbab5b?w=600&q=80')">
+        <div class="product-img g6">
           <span class="product-badge">لوکس</span>
+          ✨
         </div>
         <div class="product-body">
-          <h3>عسل مانوکا</h3>
-          <p class="product-desc">عسل نادر و لوکس با خواص درمانی فوق‌العاده و طعمی خاص</p>
-          <div class="product-meta">
-            <div class="price">۱,۲۵۰,۰۰۰ <small>تومان / کیلو</small></div>
-            <button class="add-cart">افزودن</button>
-          </div>
+          <h3>عسل وحشی</h3>
+          <p class="product-desc">عسل نادر و کمیاب از کندوهای وحشی کوهستان، با طعمی خاص و خواص درمانی فوق‌العاده.</p>
         </div>
       </div>
     </div>
@@ -497,7 +495,7 @@
 <section class="about" id="about">
   <div class="container">
     <div class="about-grid">
-      <div class="about-img reveal"></div>
+      <div class="about-img reveal">🐝</div>
       <div class="reveal">
         <span class="section-tag">درباره کندوه</span>
         <h2>داستانی از عشق به طبیعت</h2>
@@ -509,6 +507,39 @@
           <li><span class="check">✓</span> ارسال مستقیم از زنبورستان به منزل شما</li>
           <li><span class="check">✓</span> پشتیبانی ۲۴ ساعته و مشاوره رایگان</li>
         </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="process">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="section-tag">مسیر عسل تا سفره شما</span>
+      <h2>از کندو تا خانه، با دقت و عشق</h2>
+      <p>هر مرحله با نظارت کامل و رعایت استانداردهای بهداشتی انجام می‌شود</p>
+    </div>
+    <div class="process-grid">
+      <div class="step reveal">
+        <div class="step-num">۱</div>
+        <h3>پرورش زنبور</h3>
+        <p>زنبورها در دامنه‌های بکر کوهستان و دور از آلودگی پرورش می‌یابند</p>
+      </div>
+      <div class="step reveal">
+        <div class="step-num">۲</div>
+        <h3>برداشت سنتی</h3>
+        <p>عسل به روش سنتی و بدون آسیب به کندو و زنبورها برداشت می‌شود</p>
+      </div>
+      <div class="step reveal">
+        <div class="step-num">۳</div>
+        <h3>آزمایش کیفیت</h3>
+        <p>هر محموله در آزمایشگاه معتبر از نظر خلوص و کیفیت بررسی می‌شود</p>
+      </div>
+      <div class="step reveal">
+        <div class="step-num">۴</div>
+        <h3>بسته‌بندی و ارسال</h3>
+        <p>در شیشه‌های بهداشتی بسته‌بندی و به سراسر کشور ارسال می‌شود</p>
       </div>
     </div>
   </div>
@@ -541,7 +572,7 @@
       </div>
       <div class="testi reveal">
         <div class="stars">★★★★★</div>
-        <p>مشتری دائمی کندوه شدم. هم قیمت منصفانه داره هم کیفیتش تضمین شده‌ست. پشتیبانیشون هم خیلی حرفه‌ایه.</p>
+        <p>مشتری دائمی کندوه شدم. هم کیفیتش تضمین شده‌ست هم پشتیبانیشون خیلی حرفه‌ایه. به همه پیشنهاد می‌کنم.</p>
         <div class="testi-user">
           <div class="avatar">م</div>
           <div><strong>مریم کریمی</strong><span>شیراز</span></div>
@@ -634,19 +665,19 @@
       <div class="footer-col">
         <h4>محصولات</h4>
         <ul>
-          <li><a href="#">عسل گون</a></li>
-          <li><a href="#">عسل آویشن</a></li>
-          <li><a href="#">عسل چهل گیاه</a></li>
-          <li><a href="#">عسل کنار</a></li>
+          <li><a href="#products">عسل گون</a></li>
+          <li><a href="#products">عسل آویشن</a></li>
+          <li><a href="#products">عسل چهل گیاه</a></li>
+          <li><a href="#products">عسل کنار</a></li>
         </ul>
       </div>
       <div class="footer-col">
         <h4>راهنما</h4>
         <ul>
-          <li><a href="#">نحوه سفارش</a></li>
-          <li><a href="#">شرایط ارسال</a></li>
-          <li><a href="#">ضمانت بازگشت</a></li>
-          <li><a href="#">سوالات متداول</a></li>
+          <li><a href="#about">درباره ما</a></li>
+          <li><a href="#contact">نحوه سفارش</a></li>
+          <li><a href="#features">تضمین کیفیت</a></li>
+          <li><a href="#contact">پشتیبانی</a></li>
         </ul>
       </div>
     </div>
@@ -657,7 +688,6 @@
 </footer>
 
 <script>
-  // Menu toggle
   const toggle = document.getElementById('menuToggle');
   const navLinks = document.getElementById('navLinks');
   toggle.addEventListener('click', () => navLinks.classList.toggle('open'));
@@ -665,31 +695,16 @@
     a.addEventListener('click', () => navLinks.classList.remove('open'))
   );
 
-  // Reveal on scroll
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); });
   }, { threshold: 0.12 });
   document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-  // Form
   function handleSubmit(e){
     e.preventDefault();
     alert('🍯 پیام شما با موفقیت ارسال شد!\nبه زودی با شما تماس می‌گیریم.');
     e.target.reset();
   }
-
-  // Add to cart
-  document.querySelectorAll('.add-cart').forEach(btn => {
-    btn.addEventListener('click', () => {
-      const name = btn.closest('.product').querySelector('h3').textContent;
-      btn.textContent = '✓ اضافه شد';
-      btn.style.background = 'var(--honey-dark)';
-      setTimeout(() => {
-        btn.textContent = 'افزودن';
-        btn.style.background = '';
-      }, 1800);
-    });
-  });
 </script>
 </body>
 </html>
