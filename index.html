@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>کندوه | عسل طبیعی کوهستان</title>
+<title>کندوه | عسل طبیعی کوهستان الوند</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -54,18 +54,15 @@
     background:var(--honey);transition:.3s;
   }
   .nav-links a:hover::after{width:100%}
-  .btn{
-    display:inline-block;padding:12px 26px;border-radius:999px;
-    font-weight:600;cursor:pointer;border:none;font-family:inherit;
-    transition:.3s;font-size:.95rem;
-  }
-  .btn-primary{
+  .btn-call{
+    display:inline-flex;align-items:center;gap:8px;
+    padding:10px 22px;border-radius:999px;
     background:linear-gradient(135deg,var(--honey),var(--honey-dark));
-    color:#fff;box-shadow:0 8px 20px rgba(232,163,23,.35);
+    color:#fff;font-weight:600;font-size:.95rem;
+    box-shadow:0 8px 20px rgba(232,163,23,.35);
+    transition:.3s;
   }
-  .btn-primary:hover{transform:translateY(-2px);box-shadow:0 12px 28px rgba(232,163,23,.5)}
-  .btn-outline{background:transparent;color:var(--brown);border:2px solid var(--brown)}
-  .btn-outline:hover{background:var(--brown);color:#fff}
+  .btn-call:hover{transform:translateY(-2px);box-shadow:0 12px 28px rgba(232,163,23,.5)}
   .menu-toggle{display:none;background:none;border:none;font-size:1.6rem;color:var(--brown);cursor:pointer}
 
   /* ===== HERO ===== */
@@ -96,8 +93,8 @@
     -webkit-background-clip:text;background-clip:text;color:transparent;
   }
   .hero p{font-size:1.15rem;color:var(--muted);margin-bottom:36px;max-width:520px}
-  .hero-actions{display:flex;gap:16px;flex-wrap:wrap;margin-bottom:48px}
-  .hero-stats{display:flex;gap:40px;flex-wrap:wrap}
+  .hero-cta{display:flex;gap:16px;flex-wrap:wrap;align-items:center}
+  .hero-stats{display:flex;gap:40px;flex-wrap:wrap;margin-top:48px}
   .stat strong{display:block;font-size:1.8rem;color:var(--brown);font-weight:800}
   .stat span{color:var(--muted);font-size:.9rem}
 
@@ -218,11 +215,11 @@
 
   /* ===== PROCESS ===== */
   .process{background:var(--cream)}
-  .process-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;position:relative}
+  .process-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
   .step{
     text-align:center;padding:30px 20px;background:#fff;
     border-radius:20px;box-shadow:var(--shadow);
-    position:relative;transition:.3s;
+    transition:.3s;
   }
   .step:hover{transform:translateY(-6px)}
   .step-num{
@@ -259,50 +256,43 @@
 
   /* ===== CONTACT ===== */
   .contact{background:var(--cream)}
-  .contact-grid{display:grid;grid-template-columns:1fr 1.2fr;gap:60px}
-  .contact-info h3{color:var(--brown);font-size:1.5rem;margin-bottom:20px;font-weight:700}
-  .contact-info p{color:var(--muted);margin-bottom:32px}
-  .info-item{display:flex;gap:16px;margin-bottom:20px;align-items:flex-start}
-  .info-icon{
-    width:48px;height:48px;border-radius:14px;flex-shrink:0;
-    background:rgba(232,163,23,.15);color:var(--honey-dark);
-    display:grid;place-items:center;font-size:1.2rem;
+  .contact-card{
+    max-width:800px;margin:0 auto;background:#fff;
+    padding:56px 48px;border-radius:24px;box-shadow:var(--shadow);
+    text-align:center;
   }
-  .info-item strong{display:block;color:var(--brown);margin-bottom:4px}
-  .info-item span{color:var(--muted);font-size:.95rem}
-
-  form{background:#fff;padding:36px;border-radius:24px;box-shadow:var(--shadow)}
-  .form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px}
-  .form-group{margin-bottom:16px}
-  label{display:block;margin-bottom:8px;font-weight:600;color:var(--brown);font-size:.9rem}
-  input,textarea{
-    width:100%;padding:14px 18px;border:2px solid #f0e6d2;
-    border-radius:14px;background:var(--cream);font-family:inherit;font-size:.95rem;
-    color:var(--text);transition:.2s;
+  .contact-card h3{color:var(--brown);font-size:1.8rem;margin-bottom:12px;font-weight:800}
+  .contact-card > p{color:var(--muted);margin-bottom:40px;font-size:1.05rem}
+  .phone-box{
+    display:inline-flex;align-items:center;gap:16px;
+    background:linear-gradient(135deg,var(--honey),var(--honey-dark));
+    color:#fff;padding:20px 40px;border-radius:20px;
+    box-shadow:0 12px 30px rgba(232,163,23,.4);
+    transition:.3s;text-decoration:none;
+    margin-bottom:32px;
   }
-  input:focus,textarea:focus{outline:none;border-color:var(--honey);background:#fff}
-  textarea{resize:vertical;min-height:120px}
-  form .btn{width:100%;padding:16px;font-size:1rem}
+  .phone-box:hover{transform:translateY(-4px);box-shadow:0 18px 40px rgba(232,163,23,.55)}
+  .phone-icon{
+    width:56px;height:56px;border-radius:50%;
+    background:rgba(255,255,255,.2);display:grid;place-items:center;
+    font-size:1.6rem;
+  }
+  .phone-text{text-align:right}
+  .phone-text small{display:block;font-size:.85rem;opacity:.9;margin-bottom:2px}
+  .phone-text strong{font-size:1.6rem;font-weight:800;letter-spacing:1px;direction:ltr;display:block}
+  .contact-note{
+    color:var(--muted);font-size:.95rem;
+    padding:20px;background:var(--cream);border-radius:14px;
+    margin-top:8px;
+  }
 
   /* ===== FOOTER ===== */
-  footer{background:var(--brown);color:rgba(255,255,255,.7);padding:60px 0 24px}
-  .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;margin-bottom:40px}
-  .footer-col h4{color:#fff;margin-bottom:20px;font-size:1.1rem}
-  .footer-col ul{list-style:none}
-  .footer-col li{margin-bottom:10px}
-  .footer-col a{transition:.2s;font-size:.95rem}
-  .footer-col a:hover{color:var(--honey-light)}
-  .footer-col p{font-size:.95rem;margin-bottom:16px}
-  .socials{display:flex;gap:12px;margin-top:16px}
-  .socials a{
-    width:40px;height:40px;border-radius:12px;
-    background:rgba(255,255,255,.08);display:grid;place-items:center;
-    transition:.3s;
-  }
-  .socials a:hover{background:var(--honey);transform:translateY(-3px)}
+  footer{background:var(--brown);color:rgba(255,255,255,.7);padding:50px 0 24px;text-align:center}
+  footer .logo{color:#fff;justify-content:center;margin-bottom:16px}
+  footer p{max-width:500px;margin:0 auto 20px;font-size:.95rem}
   .footer-bottom{
     padding-top:24px;border-top:1px solid rgba(255,255,255,.1);
-    text-align:center;font-size:.9rem;
+    font-size:.9rem;
   }
 
   /* ===== RESPONSIVE ===== */
@@ -314,16 +304,19 @@
     }
     .nav-links.open{right:0}
     .menu-toggle{display:block}
-    .hero-grid,.about-grid,.contact-grid{grid-template-columns:1fr;gap:40px}
+    .btn-call{display:none}
+    .hero-grid,.about-grid{grid-template-columns:1fr;gap:40px}
     .hero-visual{height:400px}
     .features-grid,.products-grid,.testi-grid,.process-grid{grid-template-columns:1fr 1fr}
-    .footer-grid{grid-template-columns:1fr 1fr;gap:30px}
-    .form-row{grid-template-columns:1fr}
+    .contact-card{padding:40px 24px}
+    .phone-box{padding:16px 24px;flex-direction:column;text-align:center}
+    .phone-text{text-align:center}
     section{padding:70px 0}
   }
   @media(max-width:560px){
-    .features-grid,.products-grid,.testi-grid,.process-grid,.footer-grid{grid-template-columns:1fr}
+    .features-grid,.products-grid,.testi-grid,.process-grid{grid-template-columns:1fr}
     .hero-stats{gap:24px}
+    .phone-text strong{font-size:1.3rem}
   }
 
   /* ===== ANIMATIONS ===== */
@@ -337,7 +330,7 @@
 <header>
   <div class="container">
     <nav>
-      <a href="#" class="logo">
+      <a href="#home" class="logo">
         <span class="logo-icon">🍯</span>
         <span>کندوه</span>
       </a>
@@ -348,7 +341,7 @@
         <li><a href="#about">درباره ما</a></li>
         <li><a href="#contact">تماس</a></li>
       </ul>
-      <a href="#contact" class="btn btn-primary" style="padding:10px 22px">تماس با ما</a>
+      <a href="tel:09185478473" class="btn-call">📞 سفارش: ۰۹۱۸۵۴۷۸۴۷۳</a>
       <button class="menu-toggle" id="menuToggle">☰</button>
     </nav>
   </div>
@@ -359,28 +352,27 @@
   <div class="container">
     <div class="hero-grid">
       <div class="hero-content reveal">
-        <span class="hero-badge">🐝 عسل ۱۰۰٪ طبیعی کوهستان</span>
-        <h1>طعم <span>اصیل طبیعت</span><br>در هر قاشق از کندوه</h1>
-        <p>از دل کوه‌های زاگرس تا سفره شما؛ عسلی خالص، بدون افزودنی و با تضمین کیفیت که سلامتی خانواده‌تان را بیمه می‌کند.</p>
-        <div class="hero-actions">
-          <a href="#products" class="btn btn-primary">مشاهده محصولات ←</a>
-          <a href="#about" class="btn btn-outline">داستان ما</a>
+        <span class="hero-badge">🐝 عسل طبیعی کوهستان الوند</span>
+        <h1>طعم <span>اصیل طبیعت</span><br>از دامنه‌های الوند تا سفره شما</h1>
+        <p>کندوه، تولیدکننده عسل خالص کوهستانی از کندوهای مستقر در ارتفاعات بکر الوند؛ عسلی که با دستان پرتلاش زنبورداران بومی و با احترام به طبیعت برداشت می‌شود.</p>
+        <div class="hero-cta">
+          <a href="tel:09185478473" class="btn-call" style="padding:14px 28px;font-size:1rem">📞 تماس برای سفارش</a>
         </div>
         <div class="hero-stats">
-          <div class="stat"><strong>+۱۵</strong><span>سال تجربه زنبورداری</span></div>
-          <div class="stat"><strong>+۵۰۰۰</strong><span>مشتری راضی</span></div>
-          <div class="stat"><strong>۱۰۰٪</strong><span>طبیعی و ارگانیک</span></div>
+          <div class="stat"><strong>۱۴۰۵</strong><span>سال تأسیس</span></div>
+          <div class="stat"><strong>الوند</strong><span>کوهستان بکر</span></div>
+          <div class="stat"><strong>۱۰۰٪</strong><span>طبیعی و خالص</span></div>
         </div>
       </div>
       <div class="hero-visual reveal">
         <div class="hero-img">🍯</div>
         <div class="floating-card fc1">
           <div class="fc-icon">🏔️</div>
-          <div class="fc-text"><strong>کوهستان زاگرس</strong><span>ارتفاع ۲۵۰۰ متر</span></div>
+          <div class="fc-text"><strong>کوهستان الوند</strong><span>ارتفاعات بکر همدان</span></div>
         </div>
         <div class="floating-card fc2">
-          <div class="fc-icon">⭐</div>
-          <div class="fc-text"><strong>امتیاز ۴.۹</strong><span>از ۲۳۰۰ نظر</span></div>
+          <div class="fc-icon">🐝</div>
+          <div class="fc-text"><strong>کندوهای کوهستانی</strong><span>پرورش طبیعی</span></div>
         </div>
       </div>
     </div>
@@ -402,19 +394,19 @@
         <p>بدون هیچ‌گونه شکر، افزودنی یا فرآوری صنعتی</p>
       </div>
       <div class="feature reveal">
-        <div class="feature-icon">🔬</div>
-        <h3>تأیید آزمایشگاه</h3>
-        <p>دارای گواهی استاندارد و تأییدیه آزمایشگاه معتبر</p>
+        <div class="feature-icon">🏔️</div>
+        <h3>کوهستان الوند</h3>
+        <p>برداشت از کندوهای مستقر در ارتفاعات بکر و دست‌نخورده</p>
       </div>
       <div class="feature reveal">
-        <div class="feature-icon">🚚</div>
-        <h3>ارسال سریع</h3>
-        <p>ارسال به سراسر کشور در کمتر از ۴۸ ساعت</p>
+        <div class="feature-icon">🐝</div>
+        <h3>برداشت سنتی</h3>
+        <p>با احترام به زنبورها و بدون آسیب به کندو</p>
       </div>
       <div class="feature reveal">
-        <div class="feature-icon">💰</div>
-        <h3>ضمانت بازگشت</h3>
-        <p>در صورت عدم رضایت، وجه شما بازگردانده می‌شود</p>
+        <div class="feature-icon">✨</div>
+        <h3>تضمین خلوص</h3>
+        <p>عسلی خالص که با اطمینان کامل به سفره شما می‌رسد</p>
       </div>
     </div>
   </div>
@@ -426,7 +418,7 @@
     <div class="section-head reveal">
       <span class="section-tag">محصولات ما</span>
       <h2>عسل‌های برگزیده کندوه</h2>
-      <p>مجموعه‌ای از بهترین عسل‌های تک‌گل و چندگیاه از مناطق بکر ایران</p>
+      <p>مجموعه‌ای از بهترین عسل‌های کوهستانی الوند با رایحه و طعمی بی‌نظیر</p>
     </div>
     <div class="products-grid">
       <div class="product reveal">
@@ -436,7 +428,7 @@
         </div>
         <div class="product-body">
           <h3>عسل گون کوهی</h3>
-          <p class="product-desc">عسل تک‌گل گون از ارتفاعات زاگرس، با طعمی ملایم و خواص بی‌نظیر برای تقویت عمومی بدن.</p>
+          <p class="product-desc">عسل تک‌گل گون از ارتفاعات الوند، با طعمی ملایم و خواص بی‌نظیر برای تقویت عمومی بدن.</p>
         </div>
       </div>
       <div class="product reveal">
@@ -446,35 +438,35 @@
         </div>
         <div class="product-body">
           <h3>عسل آویشن</h3>
-          <p class="product-desc">عسل آویشن وحشی، مناسب تقویت سیستم ایمنی و کمک به بهبود سرماخوردگی و عفونت‌ها.</p>
+          <p class="product-desc">عسل آویشن وحشی کوهستان، مناسب تقویت سیستم ایمنی و کمک به بهبود سرماخوردگی.</p>
         </div>
       </div>
       <div class="product reveal">
         <div class="product-img g3">
-          <span class="product-badge">جدید</span>
+          <span class="product-badge">محبوب</span>
           🌸
         </div>
         <div class="product-body">
           <h3>عسل چهل گیاه</h3>
-          <p class="product-desc">ترکیبی از شهد گل‌های وحشی کوهستان، با عطری دلنشین و طعمی ماندگار و متعادل.</p>
+          <p class="product-desc">ترکیبی از شهد گل‌های وحشی الوند، با عطری دلنشین و طعمی ماندگار و متعادل.</p>
         </div>
       </div>
       <div class="product reveal">
         <div class="product-img g4">
-          🌴
+          🌼
         </div>
         <div class="product-body">
-          <h3>عسل کنار</h3>
-          <p class="product-desc">عسل کنار جنوب، معروف به عسل انرژی‌زا و مقوی، مناسب برای همه سنین و فصول.</p>
+          <h3>عسل بهاره</h3>
+          <p class="product-desc">برداشت شده از شکوفه‌های بهاری کوهستان، با رنگی روشن و طعمی لطیف و دلپذیر.</p>
         </div>
       </div>
       <div class="product reveal">
         <div class="product-img g5">
-          ⚫
+          🌾
         </div>
         <div class="product-body">
-          <h3>عسل سیاه‌دانه</h3>
-          <p class="product-desc">ترکیب عسل طبیعی با سیاه‌دانه، معجزه‌ای برای تقویت بدن و پیشگیری از بیماری‌ها.</p>
+          <h3>عسل پاییزه</h3>
+          <p class="product-desc">عسلی تیره‌رنگ و غنی از شهد گیاهان پاییزی، سرشار از مواد معدنی و آنتی‌اکسیدان.</p>
         </div>
       </div>
       <div class="product reveal">
@@ -484,7 +476,7 @@
         </div>
         <div class="product-body">
           <h3>عسل وحشی</h3>
-          <p class="product-desc">عسل نادر و کمیاب از کندوهای وحشی کوهستان، با طعمی خاص و خواص درمانی فوق‌العاده.</p>
+          <p class="product-desc">عسل نادر و کمیاب از کندوهای وحشی ارتفاعات الوند، با طعمی خاص و خواص فوق‌العاده.</p>
         </div>
       </div>
     </div>
@@ -498,14 +490,14 @@
       <div class="about-img reveal">🐝</div>
       <div class="reveal">
         <span class="section-tag">درباره کندوه</span>
-        <h2>داستانی از عشق به طبیعت</h2>
-        <p>کندوه از سال ۱۳۸۵ با یک کندوی کوچک در دامنه‌های زاگرس آغاز شد. امروز پس از گذشت نزدیک به دو دهه، با افتخار عسل خالص کوهستان را به سفره هزاران خانواده ایرانی می‌رسانیم.</p>
-        <p>ما به زنبورها احترام می‌گذاریم، به طبیعت پایبندیم و به کیفیت تعهد داریم. هر شیشه عسل کندوه، حاصل دستان پرتلاش زنبورداران بومی و نظارت دقیق کارشناسان ماست.</p>
+        <h2>داستانی از عشق به کوهستان الوند</h2>
+        <p>کندوه از سال ۱۴۰۵ فعالیت خود را با تمرکز بر کندوهای کوهستان الوند آغاز کرد. ما با الهام از طبیعت بکر این منطقه و با تکیه بر دانش سنتی زنبورداری، به تولید عسلی خالص و باکیفیت می‌پردازیم.</p>
+        <p>تمرکز ما بر حفظ سلامت زنبورها و برداشت پایدار از طبیعت است. هر شیشه عسل کندوه، حاصل دستان پرتلاش زنبورداران بومی و نظارت دقیق کارشناسان ماست.</p>
         <ul class="about-features">
+          <li><span class="check">✓</span> تمرکز اختصاصی بر کندوهای کوهستان الوند</li>
           <li><span class="check">✓</span> برداشت سنتی و بدون آسیب به کندو</li>
           <li><span class="check">✓</span> بسته‌بندی بهداشتی در شیشه‌های مخصوص</li>
           <li><span class="check">✓</span> ارسال مستقیم از زنبورستان به منزل شما</li>
-          <li><span class="check">✓</span> پشتیبانی ۲۴ ساعته و مشاوره رایگان</li>
         </ul>
       </div>
     </div>
@@ -524,7 +516,7 @@
       <div class="step reveal">
         <div class="step-num">۱</div>
         <h3>پرورش زنبور</h3>
-        <p>زنبورها در دامنه‌های بکر کوهستان و دور از آلودگی پرورش می‌یابند</p>
+        <p>زنبورها در ارتفاعات بکر کوهستان الوند و دور از آلودگی پرورش می‌یابند</p>
       </div>
       <div class="step reveal">
         <div class="step-num">۲</div>
@@ -533,13 +525,13 @@
       </div>
       <div class="step reveal">
         <div class="step-num">۳</div>
-        <h3>آزمایش کیفیت</h3>
-        <p>هر محموله در آزمایشگاه معتبر از نظر خلوص و کیفیت بررسی می‌شود</p>
+        <h3>کنترل کیفیت</h3>
+        <p>هر محموله از نظر خلوص، غلظت و کیفیت به دقت بررسی می‌شود</p>
       </div>
       <div class="step reveal">
         <div class="step-num">۴</div>
         <h3>بسته‌بندی و ارسال</h3>
-        <p>در شیشه‌های بهداشتی بسته‌بندی و به سراسر کشور ارسال می‌شود</p>
+        <p>در شیشه‌های بهداشتی بسته‌بندی و به دست شما می‌رسد</p>
       </div>
     </div>
   </div>
@@ -564,18 +556,18 @@
       </div>
       <div class="testi reveal">
         <div class="stars">★★★★★</div>
-        <p>بسته‌بندی عالی، ارسال سریع و از همه مهم‌تر کیفیت فوق‌العاده. عسل آویشونشون برای سرماخوردگی بچه‌هام معجزه کرد.</p>
+        <p>بسته‌بندی عالی و از همه مهم‌تر کیفیت فوق‌العاده. عسل آویشونشون برای سرماخوردگی بچه‌هام معجزه کرد.</p>
         <div class="testi-user">
           <div class="avatar">ع</div>
-          <div><strong>علی رضایی</strong><span>اصفهان</span></div>
+          <div><strong>علی رضایی</strong><span>همدان</span></div>
         </div>
       </div>
       <div class="testi reveal">
         <div class="stars">★★★★★</div>
-        <p>مشتری دائمی کندوه شدم. هم کیفیتش تضمین شده‌ست هم پشتیبانیشون خیلی حرفه‌ایه. به همه پیشنهاد می‌کنم.</p>
+        <p>مشتری دائمی کندوه شدم. کیفیتش تضمین شده‌ست و پشتیبانیشون خیلی حرفه‌ایه. به همه پیشنهاد می‌کنم.</p>
         <div class="testi-user">
           <div class="avatar">م</div>
-          <div><strong>مریم کریمی</strong><span>شیراز</span></div>
+          <div><strong>مریم کریمی</strong><span>کرج</span></div>
         </div>
       </div>
     </div>
@@ -587,51 +579,22 @@
   <div class="container">
     <div class="section-head reveal">
       <span class="section-tag">تماس با ما</span>
-      <h2>در خدمت شما هستیم</h2>
-      <p>سوالی دارید؟ برای مشاوره رایگان یا سفارش عمده با ما در تماس باشید</p>
+      <h2>برای سفارش با ما در تماس باشید</h2>
+      <p>تیم کندوه آماده پاسخگویی به شما و ثبت سفارش است</p>
     </div>
-    <div class="contact-grid">
-      <div class="contact-info reveal">
-        <h3>راه‌های ارتباطی</h3>
-        <p>تیم پشتیبانی کندوه، ۷ روز هفته آماده پاسخگویی به شماست.</p>
-        <div class="info-item">
-          <div class="info-icon">📍</div>
-          <div><strong>آدرس</strong><span>تهران، خیابان ولیعصر، پلاک ۱۲۳۴</span></div>
+    <div class="contact-card reveal">
+      <h3>📞 سفارش تلفنی</h3>
+      <p>برای ثبت سفارش، مشاوره و استعلام قیمت، با ما تماس بگیرید</p>
+      <a href="tel:09185478473" class="phone-box">
+        <div class="phone-icon">📱</div>
+        <div class="phone-text">
+          <small>شماره تماس جهت سفارش</small>
+          <strong>0918 547 8473</strong>
         </div>
-        <div class="info-item">
-          <div class="info-icon">📞</div>
-          <div><strong>تلفن</strong><span>۰۲۱-۸۸۷۷۶۶۵۵ | ۰۹۱۲-۳۴۵-۶۷۸۹</span></div>
-        </div>
-        <div class="info-item">
-          <div class="info-icon">✉️</div>
-          <div><strong>ایمیل</strong><span>info@kandooheh.ir</span></div>
-        </div>
-        <div class="info-item">
-          <div class="info-icon">🕐</div>
-          <div><strong>ساعات کاری</strong><span>شنبه تا پنج‌شنبه | ۹ صبح تا ۹ شب</span></div>
-        </div>
+      </a>
+      <div class="contact-note">
+        🕐 آماده پاسخگویی و ثبت سفارش شما هستیم
       </div>
-      <form class="reveal" onsubmit="handleSubmit(event)">
-        <div class="form-row">
-          <div class="form-group">
-            <label>نام و نام خانوادگی</label>
-            <input type="text" required placeholder="مثلاً علی رضایی">
-          </div>
-          <div class="form-group">
-            <label>شماره تماس</label>
-            <input type="tel" required placeholder="۰۹۱۲۳۴۵۶۷۸۹">
-          </div>
-        </div>
-        <div class="form-group">
-          <label>ایمیل</label>
-          <input type="email" placeholder="example@mail.com">
-        </div>
-        <div class="form-group">
-          <label>پیام شما</label>
-          <textarea required placeholder="پیام خود را اینجا بنویسید..."></textarea>
-        </div>
-        <button type="submit" class="btn btn-primary">ارسال پیام 📨</button>
-      </form>
     </div>
   </div>
 </section>
@@ -639,50 +602,13 @@
 <!-- FOOTER -->
 <footer>
   <div class="container">
-    <div class="footer-grid">
-      <div class="footer-col">
-        <div class="logo" style="color:#fff;margin-bottom:16px">
-          <span class="logo-icon">🍯</span>
-          <span>کندوه</span>
-        </div>
-        <p>فروشگاه تخصصی عسل طبیعی کوهستان. از دل طبیعت تا سفره شما، با تضمین اصالت و کیفیت.</p>
-        <div class="socials">
-          <a href="#" title="اینستاگرام">📷</a>
-          <a href="#" title="تلگرام">✈️</a>
-          <a href="#" title="واتساپ">💬</a>
-          <a href="#" title="آپارات">▶️</a>
-        </div>
-      </div>
-      <div class="footer-col">
-        <h4>دسترسی سریع</h4>
-        <ul>
-          <li><a href="#home">خانه</a></li>
-          <li><a href="#products">محصولات</a></li>
-          <li><a href="#about">درباره ما</a></li>
-          <li><a href="#contact">تماس با ما</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>محصولات</h4>
-        <ul>
-          <li><a href="#products">عسل گون</a></li>
-          <li><a href="#products">عسل آویشن</a></li>
-          <li><a href="#products">عسل چهل گیاه</a></li>
-          <li><a href="#products">عسل کنار</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>راهنما</h4>
-        <ul>
-          <li><a href="#about">درباره ما</a></li>
-          <li><a href="#contact">نحوه سفارش</a></li>
-          <li><a href="#features">تضمین کیفیت</a></li>
-          <li><a href="#contact">پشتیبانی</a></li>
-        </ul>
-      </div>
+    <div class="logo">
+      <span class="logo-icon">🍯</span>
+      <span>کندوه</span>
     </div>
+    <p>عسل طبیعی کوهستان الوند؛ از سال ۱۴۰۵، با عشق به طبیعت و تعهد به کیفیت.</p>
     <div class="footer-bottom">
-      © ۱۴۰۵ کندوه | تمامی حقوق محفوظ است. طراحی با ❤️ برای دوستداران طبیعت
+      © ۱۴۰۵ کندوه | تمامی حقوق محفوظ است.
     </div>
   </div>
 </footer>
@@ -699,12 +625,6 @@
     entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); });
   }, { threshold: 0.12 });
   document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-
-  function handleSubmit(e){
-    e.preventDefault();
-    alert('🍯 پیام شما با موفقیت ارسال شد!\nبه زودی با شما تماس می‌گیریم.');
-    e.target.reset();
-  }
 </script>
 </body>
 </html>
