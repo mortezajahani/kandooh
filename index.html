@@ -1,160 +1,695 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>کندوه | عسل طبیعی</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>کندوه | عسل طبیعی کوهستان</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --honey:#e8a317;
+    --honey-dark:#b8800d;
+    --honey-light:#f5c25a;
+    --cream:#fff8ec;
+    --brown:#3d2817;
+    --brown-soft:#5a3a22;
+    --text:#2a1d10;
+    --muted:#7a6a58;
+    --shadow: 0 10px 30px rgba(61,40,23,.12);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:'Vazirmatn',sans-serif;
+    background:var(--cream);
+    color:var(--text);
+    line-height:1.8;
+    overflow-x:hidden;
+  }
+  a{text-decoration:none;color:inherit}
+  img{max-width:100%;display:block}
+  .container{max-width:1200px;margin:0 auto;padding:0 24px}
 
-  <!-- فونت فارسی -->
-  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;600;700&display=swap" rel="stylesheet">
+  /* ===== NAVBAR ===== */
+  header{
+    position:fixed;top:0;left:0;right:0;z-index:100;
+    background:rgba(255,248,236,.85);
+    backdrop-filter:blur(12px);
+    border-bottom:1px solid rgba(232,163,23,.15);
+    transition:.3s;
+  }
+  nav{display:flex;align-items:center;justify-content:space-between;padding:18px 0}
+  .logo{display:flex;align-items:center;gap:10px;font-weight:800;font-size:1.5rem;color:var(--brown)}
+  .logo-icon{
+    width:42px;height:42px;border-radius:12px;
+    background:linear-gradient(135deg,var(--honey),var(--honey-dark));
+    display:grid;place-items:center;color:#fff;font-size:1.3rem;
+    box-shadow:0 6px 16px rgba(232,163,23,.4);
+  }
+  .nav-links{display:flex;gap:32px;list-style:none}
+  .nav-links a{font-weight:500;color:var(--brown-soft);position:relative;transition:.2s}
+  .nav-links a:hover{color:var(--honey-dark)}
+  .nav-links a::after{
+    content:'';position:absolute;bottom:-6px;right:0;width:0;height:2px;
+    background:var(--honey);transition:.3s;
+  }
+  .nav-links a:hover::after{width:100%}
+  .btn{
+    display:inline-block;padding:12px 26px;border-radius:999px;
+    font-weight:600;cursor:pointer;border:none;font-family:inherit;
+    transition:.3s;font-size:.95rem;
+  }
+  .btn-primary{
+    background:linear-gradient(135deg,var(--honey),var(--honey-dark));
+    color:#fff;box-shadow:0 8px 20px rgba(232,163,23,.35);
+  }
+  .btn-primary:hover{transform:translateY(-2px);box-shadow:0 12px 28px rgba(232,163,23,.5)}
+  .btn-outline{background:transparent;color:var(--brown);border:2px solid var(--brown)}
+  .btn-outline:hover{background:var(--brown);color:#fff}
+  .menu-toggle{display:none;background:none;border:none;font-size:1.6rem;color:var(--brown);cursor:pointer}
 
-  <style>
-    body {
-      margin: 0;
-      font-family: "Vazirmatn", sans-serif;
-      background: #fffdf7;
-      color: #2b2b2b;
+  /* ===== HERO ===== */
+  .hero{
+    min-height:100vh;
+    padding:140px 0 80px;
+    position:relative;
+    background:
+      radial-gradient(circle at 80% 20%, rgba(245,194,90,.35), transparent 50%),
+      radial-gradient(circle at 10% 80%, rgba(232,163,23,.2), transparent 50%),
+      var(--cream);
+    overflow:hidden;
+  }
+  .hero-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:60px;align-items:center}
+  .hero-badge{
+    display:inline-flex;align-items:center;gap:8px;
+    background:rgba(232,163,23,.15);color:var(--honey-dark);
+    padding:8px 18px;border-radius:999px;font-size:.9rem;font-weight:600;
+    margin-bottom:24px;
+  }
+  .hero h1{
+    font-size:clamp(2.2rem,5vw,3.8rem);
+    font-weight:800;line-height:1.25;color:var(--brown);
+    margin-bottom:24px;
+  }
+  .hero h1 span{
+    background:linear-gradient(135deg,var(--honey),var(--honey-dark));
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+  }
+  .hero p{font-size:1.15rem;color:var(--muted);margin-bottom:36px;max-width:520px}
+  .hero-actions{display:flex;gap:16px;flex-wrap:wrap;margin-bottom:48px}
+  .hero-stats{display:flex;gap:40px;flex-wrap:wrap}
+  .stat strong{display:block;font-size:1.8rem;color:var(--brown);font-weight:800}
+  .stat span{color:var(--muted);font-size:.9rem}
+
+  .hero-visual{position:relative;height:520px}
+  .hero-img{
+    position:absolute;inset:0;border-radius:32px;overflow:hidden;
+    box-shadow:var(--shadow);
+    background:url('https://images.unsplash.com/photo-1587049352846-4a222e784d38?w=900&q=80') center/cover;
+  }
+  .hero-img::after{
+    content:'';position:absolute;inset:0;
+    background:linear-gradient(180deg,transparent 50%,rgba(61,40,23,.4));
+  }
+  .floating-card{
+    position:absolute;background:#fff;padding:16px 20px;border-radius:16px;
+    box-shadow:var(--shadow);display:flex;align-items:center;gap:12px;
+    animation:float 4s ease-in-out infinite;
+  }
+  .floating-card.fc1{top:30px;left:-20px;animation-delay:0s}
+  .floating-card.fc2{bottom:40px;right:-20px;animation-delay:1.5s}
+  .fc-icon{
+    width:44px;height:44px;border-radius:12px;
+    background:linear-gradient(135deg,var(--honey-light),var(--honey));
+    display:grid;place-items:center;font-size:1.3rem;
+  }
+  .fc-text strong{display:block;font-size:.95rem;color:var(--brown)}
+  .fc-text span{font-size:.8rem;color:var(--muted)}
+  @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+
+  /* ===== SECTIONS ===== */
+  section{padding:100px 0}
+  .section-head{text-align:center;margin-bottom:64px}
+  .section-tag{
+    display:inline-block;color:var(--honey-dark);font-weight:600;
+    margin-bottom:12px;font-size:.95rem;letter-spacing:1px;
+  }
+  .section-head h2{
+    font-size:clamp(1.8rem,3.5vw,2.6rem);color:var(--brown);
+    font-weight:800;margin-bottom:16px;
+  }
+  .section-head p{color:var(--muted);max-width:600px;margin:0 auto}
+
+  /* ===== FEATURES ===== */
+  .features{background:#fff}
+  .features-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
+  .feature{
+    text-align:center;padding:32px 20px;border-radius:20px;
+    transition:.3s;border:1px solid transparent;
+  }
+  .feature:hover{
+    background:var(--cream);border-color:rgba(232,163,23,.2);
+    transform:translateY(-6px);
+  }
+  .feature-icon{
+    width:72px;height:72px;margin:0 auto 20px;border-radius:20px;
+    background:linear-gradient(135deg,var(--honey-light),var(--honey));
+    display:grid;place-items:center;font-size:2rem;color:#fff;
+    box-shadow:0 10px 24px rgba(232,163,23,.3);
+  }
+  .feature h3{color:var(--brown);font-size:1.15rem;margin-bottom:10px;font-weight:700}
+  .feature p{color:var(--muted);font-size:.95rem}
+
+  /* ===== PRODUCTS ===== */
+  .products-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:32px}
+  .product{
+    background:#fff;border-radius:24px;overflow:hidden;
+    box-shadow:var(--shadow);transition:.4s;
+    border:1px solid rgba(232,163,23,.1);
+  }
+  .product:hover{transform:translateY(-10px);box-shadow:0 20px 40px rgba(61,40,23,.18)}
+  .product-img{
+    height:240px;background-size:cover;background-position:center;
+    position:relative;
+  }
+  .product-img::after{
+    content:'';position:absolute;inset:0;
+    background:linear-gradient(180deg,transparent 60%,rgba(61,40,23,.3));
+  }
+  .product-badge{
+    position:absolute;top:16px;right:16px;z-index:2;
+    background:var(--honey);color:#fff;padding:6px 14px;
+    border-radius:999px;font-size:.8rem;font-weight:600;
+  }
+  .product-body{padding:24px}
+  .product h3{color:var(--brown);font-size:1.25rem;margin-bottom:8px;font-weight:700}
+  .product-desc{color:var(--muted);font-size:.9rem;margin-bottom:16px;min-height:44px}
+  .product-meta{
+    display:flex;align-items:center;justify-content:space-between;
+    padding-top:16px;border-top:1px dashed rgba(232,163,23,.3);
+  }
+  .price{font-size:1.3rem;font-weight:800;color:var(--honey-dark)}
+  .price small{font-size:.75rem;color:var(--muted);font-weight:400}
+  .add-cart{
+    background:var(--brown);color:#fff;border:none;padding:10px 18px;
+    border-radius:12px;cursor:pointer;font-family:inherit;font-weight:600;
+    transition:.3s;font-size:.9rem;
+  }
+  .add-cart:hover{background:var(--honey-dark)}
+
+  /* ===== ABOUT ===== */
+  .about{background:linear-gradient(135deg,var(--brown) 0%,var(--brown-soft) 100%);color:#fff}
+  .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+  .about-img{
+    border-radius:24px;overflow:hidden;height:440px;
+    background:url('https://images.unsplash.com/photo-1558642452-9d2a7deb7f62?w=800&q=80') center/cover;
+    box-shadow:0 20px 50px rgba(0,0,0,.3);
+  }
+  .about .section-tag{color:var(--honey-light)}
+  .about h2{color:#fff;font-size:clamp(1.8rem,3.5vw,2.6rem);margin-bottom:20px;font-weight:800}
+  .about p{color:rgba(255,255,255,.8);margin-bottom:20px}
+  .about-features{list-style:none;margin-top:24px}
+  .about-features li{
+    display:flex;align-items:center;gap:12px;margin-bottom:12px;
+    color:rgba(255,255,255,.9);
+  }
+  .check{
+    width:28px;height:28px;border-radius:50%;
+    background:var(--honey);display:grid;place-items:center;
+    color:#fff;font-weight:700;flex-shrink:0;
+  }
+
+  /* ===== TESTIMONIALS ===== */
+  .testimonials{background:var(--cream)}
+  .testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+  .testi{
+    background:#fff;padding:32px;border-radius:20px;
+    box-shadow:var(--shadow);position:relative;
+  }
+  .testi::before{
+    content:'"';position:absolute;top:10px;left:24px;
+    font-size:5rem;color:var(--honey-light);font-family:Georgia;line-height:1;
+  }
+  .testi p{color:var(--text);margin-bottom:20px;position:relative;z-index:1}
+  .testi-user{display:flex;align-items:center;gap:12px}
+  .avatar{
+    width:48px;height:48px;border-radius:50%;
+    background:linear-gradient(135deg,var(--honey),var(--honey-dark));
+    display:grid;place-items:center;color:#fff;font-weight:700;
+  }
+  .testi-user strong{display:block;color:var(--brown)}
+  .testi-user span{font-size:.85rem;color:var(--muted)}
+  .stars{color:var(--honey);margin-bottom:12px}
+
+  /* ===== CONTACT ===== */
+  .contact{background:#fff}
+  .contact-grid{display:grid;grid-template-columns:1fr 1.2fr;gap:60px}
+  .contact-info h3{color:var(--brown);font-size:1.5rem;margin-bottom:20px;font-weight:700}
+  .contact-info p{color:var(--muted);margin-bottom:32px}
+  .info-item{display:flex;gap:16px;margin-bottom:20px;align-items:flex-start}
+  .info-icon{
+    width:48px;height:48px;border-radius:14px;flex-shrink:0;
+    background:rgba(232,163,23,.15);color:var(--honey-dark);
+    display:grid;place-items:center;font-size:1.2rem;
+  }
+  .info-item strong{display:block;color:var(--brown);margin-bottom:4px}
+  .info-item span{color:var(--muted);font-size:.95rem}
+
+  form{background:var(--cream);padding:36px;border-radius:24px}
+  .form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px}
+  .form-group{margin-bottom:16px}
+  label{display:block;margin-bottom:8px;font-weight:600;color:var(--brown);font-size:.9rem}
+  input,textarea{
+    width:100%;padding:14px 18px;border:2px solid transparent;
+    border-radius:14px;background:#fff;font-family:inherit;font-size:.95rem;
+    color:var(--text);transition:.2s;
+  }
+  input:focus,textarea:focus{outline:none;border-color:var(--honey)}
+  textarea{resize:vertical;min-height:120px}
+  form .btn{width:100%;padding:16px;font-size:1rem}
+
+  /* ===== FOOTER ===== */
+  footer{background:var(--brown);color:rgba(255,255,255,.7);padding:60px 0 24px}
+  .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;margin-bottom:40px}
+  .footer-col h4{color:#fff;margin-bottom:20px;font-size:1.1rem}
+  .footer-col ul{list-style:none}
+  .footer-col li{margin-bottom:10px}
+  .footer-col a{transition:.2s;font-size:.95rem}
+  .footer-col a:hover{color:var(--honey-light)}
+  .footer-col p{font-size:.95rem;margin-bottom:16px}
+  .socials{display:flex;gap:12px;margin-top:16px}
+  .socials a{
+    width:40px;height:40px;border-radius:12px;
+    background:rgba(255,255,255,.08);display:grid;place-items:center;
+    transition:.3s;
+  }
+  .socials a:hover{background:var(--honey);color:#fff;transform:translateY(-3px)}
+  .footer-bottom{
+    padding-top:24px;border-top:1px solid rgba(255,255,255,.1);
+    text-align:center;font-size:.9rem;
+  }
+
+  /* ===== RESPONSIVE ===== */
+  @media(max-width:900px){
+    .nav-links{
+      position:fixed;top:70px;right:-100%;width:80%;max-width:300px;
+      height:calc(100vh - 70px);background:#fff;flex-direction:column;
+      padding:40px 30px;gap:24px;transition:.4s;box-shadow:-10px 0 30px rgba(0,0,0,.1);
     }
+    .nav-links.open{right:0}
+    .menu-toggle{display:block}
+    .hero-grid,.about-grid,.contact-grid{grid-template-columns:1fr;gap:40px}
+    .hero-visual{height:400px}
+    .features-grid,.products-grid,.testi-grid{grid-template-columns:1fr}
+    .footer-grid{grid-template-columns:1fr 1fr;gap:30px}
+    .form-row{grid-template-columns:1fr}
+    section{padding:70px 0}
+  }
+  @media(max-width:500px){
+    .footer-grid{grid-template-columns:1fr}
+    .hero-stats{gap:24px}
+  }
 
-    header {
-      background: linear-gradient(135deg, #fbbf24, #f59e0b);
-      color: white;
-      text-align: center;
-      padding: 70px 20px;
-    }
-
-    header h1 {
-      margin: 0;
-      font-size: 42px;
-    }
-
-    header p {
-      margin-top: 10px;
-      font-size: 18px;
-    }
-
-    .container {
-      max-width: 1000px;
-      margin: auto;
-      padding: 40px 20px;
-    }
-
-    .section-title {
-      text-align: center;
-      font-size: 28px;
-      margin-bottom: 30px;
-      color: #b45309;
-    }
-
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
-    }
-
-    .card {
-      background: white;
-      border-radius: 16px;
-      padding: 20px;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.08);
-      transition: 0.3s;
-    }
-
-    .card:hover {
-      transform: translateY(-5px);
-    }
-
-    .honey-img {
-      width: 100%;
-      border-radius: 12px;
-    }
-
-    .price {
-      color: #16a34a;
-      font-weight: bold;
-      margin-top: 10px;
-    }
-
-    .btn {
-      display: inline-block;
-      margin-top: 10px;
-      padding: 10px 15px;
-      background: #f59e0b;
-      color: white;
-      border-radius: 10px;
-      text-decoration: none;
-      font-size: 14px;
-    }
-
-    .about {
-      background: #fff7ed;
-      padding: 40px;
-      border-radius: 16px;
-      margin-top: 40px;
-      text-align: center;
-    }
-
-    footer {
-      text-align: center;
-      padding: 30px;
-      font-size: 13px;
-      color: #6b7280;
-    }
-  </style>
+  /* ===== ANIMATIONS ===== */
+  .reveal{opacity:0;transform:translateY(30px);transition:.8s}
+  .reveal.visible{opacity:1;transform:translateY(0)}
+</style>
 </head>
-
 <body>
 
+<!-- HEADER -->
 <header>
-  <h1>🐝 کندوه</h1>
-  <p>عسل طبیعی، خالص و مستقیم از دل طبیعت</p>
+  <div class="container">
+    <nav>
+      <a href="#" class="logo">
+        <span class="logo-icon">🍯</span>
+        <span>کندوه</span>
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#home">خانه</a></li>
+        <li><a href="#features">ویژگی‌ها</a></li>
+        <li><a href="#products">محصولات</a></li>
+        <li><a href="#about">درباره ما</a></li>
+        <li><a href="#contact">تماس</a></li>
+      </ul>
+      <a href="#products" class="btn btn-primary" style="padding:10px 22px">سفارش</a>
+      <button class="menu-toggle" id="menuToggle">☰</button>
+    </nav>
+  </div>
 </header>
 
-<div class="container">
-
-  <h2 class="section-title">محصولات ما 🍯</h2>
-
-  <div class="grid">
-
-    <div class="card">
-      <img class="honey-img" src="https://images.unsplash.com/photo-1587049352846-4a222e784d38" alt="">
-      <h3>عسل طبیعی کوهستان</h3>
-      <p>عسل خالص و بدون افزودنی، برداشت شده از مناطق کوهستانی</p>
-      <div class="price">۳۵۰,۰۰۰ تومان</div>
-      <a class="btn" href="#">سفارش</a>
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="container">
+    <div class="hero-grid">
+      <div class="hero-content reveal">
+        <span class="hero-badge">🐝 عسل ۱۰۰٪ طبیعی کوهستان</span>
+        <h1>طعم <span>اصیل طبیعت</span><br>در هر قاشق از کندوه</h1>
+        <p>از دل کوه‌های زاگرس تا سفره شما؛ عسلی خالص، بدون افزودنی و با تضمین کیفیت که سلامتی خانواده‌تان را بیمه می‌کند.</p>
+        <div class="hero-actions">
+          <a href="#products" class="btn btn-primary">مشاهده محصولات ←</a>
+          <a href="#about" class="btn btn-outline">داستان ما</a>
+        </div>
+        <div class="hero-stats">
+          <div class="stat"><strong>+۱۵</strong><span>سال تجربه زنبورداری</span></div>
+          <div class="stat"><strong>+۵۰۰۰</strong><span>مشتری راضی</span></div>
+          <div class="stat"><strong>۱۰۰٪</strong><span>طبیعی و ارگانیک</span></div>
+        </div>
+      </div>
+      <div class="hero-visual reveal">
+        <div class="hero-img"></div>
+        <div class="floating-card fc1">
+          <div class="fc-icon">🏔️</div>
+          <div class="fc-text"><strong>کوهستان زاگرس</strong><span>ارتفاع ۲۵۰۰ متر</span></div>
+        </div>
+        <div class="floating-card fc2">
+          <div class="fc-icon">⭐</div>
+          <div class="fc-text"><strong>امتیاز ۴.۹</strong><span>از ۲۳۰۰ نظر</span></div>
+        </div>
+      </div>
     </div>
-
-    <div class="card">
-      <img class="honey-img" src="https://images.unsplash.com/photo-1587049352851-8d4b9c6d7b3a" alt="">
-      <h3>عسل کنار</h3>
-      <p>عطر قوی و طعم خاص، مناسب تقویت بدن</p>
-      <div class="price">۴۲۰,۰۰۰ تومان</div>
-      <a class="btn" href="#">سفارش</a>
-    </div>
-
-    <div class="card">
-      <img class="honey-img" src="https://images.unsplash.com/photo-1558642452-9d2a7deb7f62" alt="">
-      <h3>عسل چندگل</h3>
-      <p>ترکیب طبیعی گل‌های وحشی، طعمی ملایم و خوش‌عطر</p>
-      <div class="price">۳۲۰,۰۰۰ تومان</div>
-      <a class="btn" href="#">سفارش</a>
-    </div>
-
   </div>
+</section>
 
-  <div class="about">
-    <h2>درباره کندوه</h2>
-    <p>
-      کندوه با هدف ارائه عسل طبیعی و خالص فعالیت می‌کند.
-      ما مستقیماً از زنبورداران محلی، عسل را بدون واسطه به دست شما می‌رسانیم.
-    </p>
+<!-- FEATURES -->
+<section class="features" id="features">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="section-tag">چرا کندوه؟</span>
+      <h2>تفاوت ما در کیفیت است</h2>
+      <p>ما باور داریم عسل خوب، هدیه‌ای از طبیعت است و باید همان‌طور که هست به دست شما برسد.</p>
+    </div>
+    <div class="features-grid">
+      <div class="feature reveal">
+        <div class="feature-icon">🌿</div>
+        <h3>کاملاً طبیعی</h3>
+        <p>بدون هیچ‌گونه شکر، افزودنی یا فرآوری صنعتی</p>
+      </div>
+      <div class="feature reveal">
+        <div class="feature-icon">🔬</div>
+        <h3>تأیید آزمایشگاه</h3>
+        <p>دارای گواهی استاندارد و تأییدیه آزمایشگاه معتبر</p>
+      </div>
+      <div class="feature reveal">
+        <div class="feature-icon">🚚</div>
+        <h3>ارسال سریع</h3>
+        <p>ارسال به سراسر کشور در کمتر از ۴۸ ساعت</p>
+      </div>
+      <div class="feature reveal">
+        <div class="feature-icon">💰</div>
+        <h3>ضمانت بازگشت</h3>
+        <p>در صورت عدم رضایت، وجه شما بازگردانده می‌شود</p>
+      </div>
+    </div>
   </div>
+</section>
 
-</div>
+<!-- PRODUCTS -->
+<section id="products">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="section-tag">محصولات ما</span>
+      <h2>عسل‌های برگزیده کندوه</h2>
+      <p>مجموعه‌ای از بهترین عسل‌های تک‌گل و چندگیاه از مناطق بکر ایران</p>
+    </div>
+    <div class="products-grid">
+      <div class="product reveal">
+        <div class="product-img" style="background-image:url('https://images.unsplash.com/photo-1587049352846-4a222e784d38?w=600&q=80')">
+          <span class="product-badge">پرفروش</span>
+        </div>
+        <div class="product-body">
+          <h3>عسل گون کوهی</h3>
+          <p class="product-desc">عسل تک‌گل گون از ارتفاعات زاگرس، طعمی ملایم و خواص بی‌نظیر</p>
+          <div class="product-meta">
+            <div class="price">۴۸۰,۰۰۰ <small>تومان / کیلو</small></div>
+            <button class="add-cart">افزودن</button>
+          </div>
+        </div>
+      </div>
+      <div class="product reveal">
+        <div class="product-img" style="background-image:url('https://images.unsplash.com/photo-1558642452-9d2a7deb7f62?w=600&q=80')">
+          <span class="product-badge">ویژه</span>
+        </div>
+        <div class="product-body">
+          <h3>عسل آویشن</h3>
+          <p class="product-desc">عسل آویشن وحشی، مناسب تقویت سیستم ایمنی و سرماخوردگی</p>
+          <div class="product-meta">
+            <div class="price">۵۶۰,۰۰۰ <small>تومان / کیلو</small></div>
+            <button class="add-cart">افزودن</button>
+          </div>
+        </div>
+      </div>
+      <div class="product reveal">
+        <div class="product-img" style="background-image:url('https://images.unsplash.com/photo-1471943311424-646960669fbc?w=600&q=80')">
+          <span class="product-badge">جدید</span>
+        </div>
+        <div class="product-body">
+          <h3>عسل چهل گیاه</h3>
+          <p class="product-desc">ترکیبی از شهد گل‌های وحشی کوهستان، عطری دلنشین و طعمی ماندگار</p>
+          <div class="product-meta">
+            <div class="price">۴۲۰,۰۰۰ <small>تومان / کیلو</small></div>
+            <button class="add-cart">افزودن</button>
+          </div>
+        </div>
+      </div>
+      <div class="product reveal">
+        <div class="product-img" style="background-image:url('https://images.unsplash.com/photo-1600271867407-1a8a5b4cf9d5?w=600&q=80')"></div>
+        <div class="product-body">
+          <h3>عسل کنار</h3>
+          <p class="product-desc">عسل کنار جنوب، معروف به عسل انرژی‌زا و مقوی برای همه سنین</p>
+          <div class="product-meta">
+            <div class="price">۵۲۰,۰۰۰ <small>تومان / کیلو</small></div>
+            <button class="add-cart">افزودن</button>
+          </div>
+        </div>
+      </div>
+      <div class="product reveal">
+        <div class="product-img" style="background-image:url('https://images.unsplash.com/photo-1587049633312-d628ae50a8ae?w=600&q=80')"></div>
+        <div class="product-body">
+          <h3>عسل سیاه‌دانه</h3>
+          <p class="product-desc">ترکیب عسل طبیعی با سیاه‌دانه، معجزه‌ای برای تقویت بدن</p>
+          <div class="product-meta">
+            <div class="price">۶۴۰,۰۰۰ <small>تومان / کیلو</small></div>
+            <button class="add-cart">افزودن</button>
+          </div>
+        </div>
+      </div>
+      <div class="product reveal">
+        <div class="product-img" style="background-image:url('https://images.unsplash.com/photo-1611080626919-7cf5a9dbab5b?w=600&q=80')">
+          <span class="product-badge">لوکس</span>
+        </div>
+        <div class="product-body">
+          <h3>عسل مانوکا</h3>
+          <p class="product-desc">عسل نادر و لوکس با خواص درمانی فوق‌العاده و طعمی خاص</p>
+          <div class="product-meta">
+            <div class="price">۱,۲۵۰,۰۰۰ <small>تومان / کیلو</small></div>
+            <button class="add-cart">افزودن</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-img reveal"></div>
+      <div class="reveal">
+        <span class="section-tag">درباره کندوه</span>
+        <h2>داستانی از عشق به طبیعت</h2>
+        <p>کندوه از سال ۱۳۸۵ با یک کندوی کوچک در دامنه‌های زاگرس آغاز شد. امروز پس از گذشت نزدیک به دو دهه، با افتخار عسل خالص کوهستان را به سفره هزاران خانواده ایرانی می‌رسانیم.</p>
+        <p>ما به زنبورها احترام می‌گذاریم، به طبیعت پایبندیم و به کیفیت تعهد داریم. هر شیشه عسل کندوه، حاصل دستان پرتلاش زنبورداران بومی و نظارت دقیق کارشناسان ماست.</p>
+        <ul class="about-features">
+          <li><span class="check">✓</span> برداشت سنتی و بدون آسیب به کندو</li>
+          <li><span class="check">✓</span> بسته‌بندی بهداشتی در شیشه‌های مخصوص</li>
+          <li><span class="check">✓</span> ارسال مستقیم از زنبورستان به منزل شما</li>
+          <li><span class="check">✓</span> پشتیبانی ۲۴ ساعته و مشاوره رایگان</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="section-tag">نظرات مشتریان</span>
+      <h2>آنچه مشتریان ما می‌گویند</h2>
+      <p>اعتماد شما، بزرگ‌ترین سرمایه ماست</p>
+    </div>
+    <div class="testi-grid">
+      <div class="testi reveal">
+        <div class="stars">★★★★★</div>
+        <p>عسل گون کندوه واقعاً بی‌نظیره! طعم و عطرش با همه عسل‌هایی که تا حالا خریدم فرق داره. دیگه فقط از اینجا خرید می‌کنم.</p>
+        <div class="testi-user">
+          <div class="avatar">س</div>
+          <div><strong>سارا محمدی</strong><span>تهران</span></div>
+        </div>
+      </div>
+      <div class="testi reveal">
+        <div class="stars">★★★★★</div>
+        <p>بسته‌بندی عالی، ارسال سریع و از همه مهم‌تر کیفیت فوق‌العاده. عسل آویشونشون برای سرماخوردگی بچه‌هام معجزه کرد.</p>
+        <div class="testi-user">
+          <div class="avatar">ع</div>
+          <div><strong>علی رضایی</strong><span>اصفهان</span></div>
+        </div>
+      </div>
+      <div class="testi reveal">
+        <div class="stars">★★★★★</div>
+        <p>مشتری دائمی کندوه شدم. هم قیمت منصفانه داره هم کیفیتش تضمین شده‌ست. پشتیبانیشون هم خیلی حرفه‌ایه.</p>
+        <div class="testi-user">
+          <div class="avatar">م</div>
+          <div><strong>مریم کریمی</strong><span>شیراز</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="section-tag">تماس با ما</span>
+      <h2>در خدمت شما هستیم</h2>
+      <p>سوالی دارید؟ برای مشاوره رایگان یا سفارش عمده با ما در تماس باشید</p>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-info reveal">
+        <h3>راه‌های ارتباطی</h3>
+        <p>تیم پشتیبانی کندوه، ۷ روز هفته آماده پاسخگویی به شماست.</p>
+        <div class="info-item">
+          <div class="info-icon">📍</div>
+          <div><strong>آدرس</strong><span>تهران، خیابان ولیعصر، پلاک ۱۲۳۴</span></div>
+        </div>
+        <div class="info-item">
+          <div class="info-icon">📞</div>
+          <div><strong>تلفن</strong><span>۰۲۱-۸۸۷۷۶۶۵۵ | ۰۹۱۲-۳۴۵-۶۷۸۹</span></div>
+        </div>
+        <div class="info-item">
+          <div class="info-icon">✉️</div>
+          <div><strong>ایمیل</strong><span>info@kandooheh.ir</span></div>
+        </div>
+        <div class="info-item">
+          <div class="info-icon">🕐</div>
+          <div><strong>ساعات کاری</strong><span>شنبه تا پنج‌شنبه | ۹ صبح تا ۹ شب</span></div>
+        </div>
+      </div>
+      <form class="reveal" onsubmit="handleSubmit(event)">
+        <div class="form-row">
+          <div class="form-group">
+            <label>نام و نام خانوادگی</label>
+            <input type="text" required placeholder="مثلاً علی رضایی">
+          </div>
+          <div class="form-group">
+            <label>شماره تماس</label>
+            <input type="tel" required placeholder="۰۹۱۲۳۴۵۶۷۸۹">
+          </div>
+        </div>
+        <div class="form-group">
+          <label>ایمیل</label>
+          <input type="email" placeholder="example@mail.com">
+        </div>
+        <div class="form-group">
+          <label>پیام شما</label>
+          <textarea required placeholder="پیام خود را اینجا بنویسید..."></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">ارسال پیام 📨</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
 <footer>
-  © کندوه | عسل طبیعی - ساخته شده با GitHub Pages
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <div class="logo" style="color:#fff;margin-bottom:16px">
+          <span class="logo-icon">🍯</span>
+          <span>کندوه</span>
+        </div>
+        <p>فروشگاه تخصصی عسل طبیعی کوهستان. از دل طبیعت تا سفره شما، با تضمین اصالت و کیفیت.</p>
+        <div class="socials">
+          <a href="#" title="اینستاگرام">📷</a>
+          <a href="#" title="تلگرام">✈️</a>
+          <a href="#" title="واتساپ">💬</a>
+          <a href="#" title="آپارات">▶️</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>دسترسی سریع</h4>
+        <ul>
+          <li><a href="#home">خانه</a></li>
+          <li><a href="#products">محصولات</a></li>
+          <li><a href="#about">درباره ما</a></li>
+          <li><a href="#contact">تماس با ما</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>محصولات</h4>
+        <ul>
+          <li><a href="#">عسل گون</a></li>
+          <li><a href="#">عسل آویشن</a></li>
+          <li><a href="#">عسل چهل گیاه</a></li>
+          <li><a href="#">عسل کنار</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>راهنما</h4>
+        <ul>
+          <li><a href="#">نحوه سفارش</a></li>
+          <li><a href="#">شرایط ارسال</a></li>
+          <li><a href="#">ضمانت بازگشت</a></li>
+          <li><a href="#">سوالات متداول</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      © ۱۴۰۵ کندوه | تمامی حقوق محفوظ است. طراحی با ❤️ برای دوستداران طبیعت
+    </div>
+  </div>
 </footer>
 
+<script>
+  // Menu toggle
+  const toggle = document.getElementById('menuToggle');
+  const navLinks = document.getElementById('navLinks');
+  toggle.addEventListener('click', () => navLinks.classList.toggle('open'));
+  document.querySelectorAll('.nav-links a').forEach(a => 
+    a.addEventListener('click', () => navLinks.classList.remove('open'))
+  );
+
+  // Reveal on scroll
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  // Form
+  function handleSubmit(e){
+    e.preventDefault();
+    alert('🍯 پیام شما با موفقیت ارسال شد!\nبه زودی با شما تماس می‌گیریم.');
+    e.target.reset();
+  }
+
+  // Add to cart
+  document.querySelectorAll('.add-cart').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const name = btn.closest('.product').querySelector('h3').textContent;
+      btn.textContent = '✓ اضافه شد';
+      btn.style.background = 'var(--honey-dark)';
+      setTimeout(() => {
+        btn.textContent = 'افزودن';
+        btn.style.background = '';
+      }, 1800);
+    });
+  });
+</script>
 </body>
 </html>
